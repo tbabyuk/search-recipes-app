@@ -1,38 +1,80 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: blueviolet;
+  padding: 12px;
+  color: #fafafa;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.search-form {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.search-field {
+  width: 100%;
+  height: 30px;
+  font-size: 1.2rem;
+  padding-left: 5px;
+}
+
+.search-button {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.show-recipes {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+
+/* SINGLE RECIPE STYLING */
+
+.img-round {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 15px 0;
+  background-position: center;
+}
+
+.single-recipe {
+  background-color: rgb(184, 184, 236);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  color: #fafafa;
+  border-radius: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.single-recipe a:link {
+  color: #fafafa;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.single-recipe a:hover {
+  background-color: hsl(0, 67%, 68%);
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-link {
+  background-color: hsl(0, 67%, 64%);
+  padding: 5px 10px;
+  border-radius: 10px;
 }
