@@ -1,28 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+
 
 export class Search extends Component {
-    state = { text: ''}
+  state = { text: '' };
 
-    onChange = (e) => {
-        this.setState({ text: e.target.value })
-    }
+  static propTypes = {
+    searchRecipes: PropTypes.func.isRequired,
+  };
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        this.props.searchRecipes(this.state.text);
-        this.setState( {text: ''} )
-    }
+  onChange = (e) => this.setState({ text: e.target.value });
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    if(this.state.text === '') {
+      this.props.setAlert('Please enter something', 'light');
+    } else {
+    this.props.searchRecipes(this.state.text);
+    this.setState({ text: '' });
+  }
+  };
 
+  
   render() {
     return (
-        <div>
-        <form className ='search-form' onSubmit={this.onSubmit}>
-          <input type='text' className ='search-field' value={this.state.text} onChange={this.onChange}></input>
-          <button type='submit' className ='search-button'>Search Recipes</button>
+      <div>
+        <form className='search-form' onSubmit={this.onSubmit}>
+          <input type='text' className='search-field' placeholder='Search recipes...' value={this.state.text} onChange={this.onChange}></input>
+          <button type='submit' className='search-button'>Search Recipes</button>
+          {this.props.recipesFetched && <button className='clear-button' onClick={this.props.clearRecipes}>Clear Recipes</button>}
         </form>
-      </div>    )
+      </div>
+    );
   }
 }
 
-export default Search
+export default Search;
