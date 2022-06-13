@@ -15,10 +15,11 @@ export class Search extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     if(this.state.text === '') {
-      this.props.setAlert('Please enter something', 'light');
+      this.props.setAlert('Please enter something');
     } else {
     this.props.searchRecipes(this.state.text);
     this.setState({ text: '' });
+    this.props.setAlert(null)
   }
   };
 

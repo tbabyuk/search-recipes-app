@@ -25,17 +25,19 @@ class App extends Component {
   clearRecipes = () => this.setState({ recipes: [], loading: false });
 
   //Set Alert
-  setAlert = (msg, type) => {
-    this.setState({ alert: { msg, type }})
+  setAlert = msg => {
+    this.setState( {alert: msg})
+    //Another option is to set alert to display for several seconds, as with code below
+    // setTimeout(() => this.setState({ alert: null }), 4000)
   }
 
 render() {
   return (
     <div className="App">
         <Navbar animal={this.state.recipes}/>
-        {this.state.alert && (<Alert />)}
         <Search searchRecipes={this.searchRecipes} recipesFetched={this.state.recipes.count > 0} clearRecipes={this.clearRecipes} setAlert={this.setAlert}  />
         <ShowRecipes results={this.state.recipes.recipes} loading={this.state.loading}/>
+        {this.state.alert && (<Alert alert={this.state.alert} />)}
     </div>
   );
 }

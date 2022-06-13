@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.App {
+  position: relative;
+}
+
 .navbar {
   background-color: blueviolet;
   padding: 12px;
@@ -77,4 +81,17 @@
   background-color: hsl(0, 67%, 64%);
   padding: 5px 10px;
   border-radius: 10px;
+}
+
+.my-alert {
+  position: absolute;
+  background-color: red;
+  top: 0;
+  right: 50%;
+  padding: 12px;
+  width: 400px;
+  transform: translate(50%);
+  border-radius: 10px;
+  color: white;
+  text-align: center;
 }
