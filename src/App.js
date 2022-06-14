@@ -1,9 +1,11 @@
 import './App.css';
-import React, {Component} from 'react';
+import React, {Fragment, Component} from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import ShowRecipes from './components/ShowRecipes';
 import Alert from './components/Alert';
+import About from './components/pages/About';
 
 class App extends Component {
 
@@ -33,12 +35,21 @@ class App extends Component {
 
 render() {
   return (
+    <Router>
     <div className="App">
         <Navbar animal={this.state.recipes}/>
-        <Search searchRecipes={this.searchRecipes} recipesFetched={this.state.recipes.count > 0} clearRecipes={this.clearRecipes} setAlert={this.setAlert}  />
-        <ShowRecipes results={this.state.recipes.recipes} loading={this.state.loading}/>
-        {this.state.alert && (<Alert alert={this.state.alert} />)}
+        <Routes>
+          <Route exact path='/' element = {
+            <Fragment>
+              <Search searchRecipes={this.searchRecipes} recipesFetched={this.state.recipes.count > 0} clearRecipes={this.clearRecipes} setAlert={this.setAlert}  />
+              <ShowRecipes results={this.state.recipes.recipes} loading={this.state.loading}/>
+              {this.state.alert && (<Alert alert={this.state.alert} />)}
+            </Fragment>
+          } />
+          <Route exact path='/about' element={<About />} />
+        </Routes>
     </div>
+    </Router>
   );
 }
 }
