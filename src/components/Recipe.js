@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Recipe = ({title, url, source}) => {
+const Recipe = ({title, url, source, id}) => {
   // state = {
   //   title: 'best Pizza Dough Ever',
   //   image_url: 'http://forkify-api.herokuapp.com/images/best_pizza_dough_recipe1b20.jpg',
@@ -15,7 +16,7 @@ const Recipe = ({title, url, source}) => {
       <div className ='single-recipe'>
         <h3>{title}</h3>
         <img className ='img-round' src={url}></img>
-        <a className ='btn-link' href={source} target='_blank'>view original recipe</a>
+        <Link className ='btn-link' to={`/recipe/${id}`}>view recipe</Link>
       </div>
       </>
     )

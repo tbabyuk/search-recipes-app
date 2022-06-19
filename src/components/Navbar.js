@@ -7,7 +7,7 @@ const Navbar = (props) => {
       <h4>
         <i className='fas fa-hamburger' /> Search Recipes App
       </h4>
-      <ul class='nav-menu'>
+      <ul className='nav-menu'>
         <li>
           <Link to='/' style={linkStyle}>Home</Link>
         </li>

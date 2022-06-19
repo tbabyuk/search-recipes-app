@@ -11,7 +11,7 @@ const ShowRecipes = ({ results, loading}) => {
     return (
       <div className='show-recipes'>
         {results?.map((recipe, index) => (
-          <Recipe key={index} title={recipe.title} url={recipe.image_url} source={recipe.source_url} />
+          <Recipe key={index} title={recipe.title} url={recipe.image_url} source={recipe.source_url} id={recipe.recipe_id} />
         ))}
       </div>
     );

@@ -6,11 +6,13 @@ import Search from './components/Search';
 import ShowRecipes from './components/ShowRecipes';
 import Alert from './components/Alert';
 import About from './components/pages/About';
+import RecipeFeature from './components/RecipeFeature';
 
 class App extends Component {
 
   state = {
     recipes: [],
+    recipe: {},
     loading: false,
     alert: null
   }
@@ -22,6 +24,16 @@ class App extends Component {
     const data = await res.json()
     this.setState({ recipes: data, loading: false })
   }
+
+  //Get a single recipe
+  getRecipe = async text => {
+    this.setState({ recipe: {}, loading: true});
+    const res = await fetch(`https://forkify-api.herokuapp.com/api/get?rId=${text}`);
+    const data = await res.json();
+    this.setState({ recipe: data, loading: false });
+  }
+
+
 
   //Clear recipes from state
   clearRecipes = () => this.setState({ recipes: [], loading: false });
@@ -47,6 +59,7 @@ render() {
             </Fragment>
           } />
           <Route exact path='/about' element={<About />} />
+          <Route exact path='/recipe/:id' element={<RecipeFeature state1={this.state.recipe.recipe} getRecipe={this.getRecipe} />} />
         </Routes>
     </div>
     </Router>
