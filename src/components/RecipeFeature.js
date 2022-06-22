@@ -14,14 +14,29 @@ function RecipeFeature(props) {
   if(props.state1) 
   return (
     <>
-    <div>{props.state1.title}</div>
-    <div>{props.state1.source_url}</div>
-    <div>{props.state1.recipe_id}</div>
+    <div className='recipe-wrapper'>
+    <div className='recipe-header'>
+      <img className='recipe-image' src={props.state1.image_url} />    
+      <h2 className='recipe-title'>{props.state1.title}</h2>
+    </div>
+    <div className='ingredients-list'>
+      <h3>Ingredients:</h3>
+      <div className='list-items'>
+      {props.state1.ingredients.map((ing, index) => {
+        return <li key={index}><i className='fa fa-check' /> {ing}</li>
+      })}
+      </div>
+    </div>
+    </div>
     </>
   )
 
   
 }
+
+// const styles = {
+//   background: `{props.state1.image_url}`
+// }
 
 export default RecipeFeature
 
