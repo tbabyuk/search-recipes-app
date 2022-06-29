@@ -5,7 +5,7 @@ const Navbar = (props) => {
   return (
     <div className='navbar'>
       <h4>
-        <i className='fas fa-hamburger' /> Search Recipes App
+          <Link to='/' style={linkStyle}> <i className='fas fa-hamburger' /> Search Recipes App</Link>
       </h4>
       <ul className='nav-menu'>
         <li>
