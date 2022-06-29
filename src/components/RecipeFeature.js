@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function RecipeFeature(props) {
   if(props.state1) {
@@ -34,29 +34,5 @@ function RecipeFeature(props) {
   
 }
 
-// const styles = {
-//   background: `{props.state1.image_url}`
-// }
 
-export default RecipeFeature
-
-
-// class RecipeFeature extends Component {
-
-//     componentDidMount() {
-//       const id = window.location.pathname.split('/')[2];
-//       this.props.getRecipe(id)
-//     }
-
-//   render() {
-//     // console.log(this.props.state1)
-//     // const {title, image_url} = this.props.state1;
-//     return (
-//       <Fragment>
-//             {/* {this.props.state1.title} */}Hi
-//       </Fragment>
-//     )
-//   }
-// }
-
-// export default RecipeFeature
+export default RecipeFeature;
